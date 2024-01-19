@@ -23,6 +23,7 @@
         </activity>
         <activity android:name=".home"></activity>
         <activity android:name=".register_info"></activity>
+        <activity android:name=".customerInfo"></activity>
     </application>
 
 </manifest>
