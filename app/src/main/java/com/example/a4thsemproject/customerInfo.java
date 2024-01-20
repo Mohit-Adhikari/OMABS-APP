@@ -1,11 +1,14 @@
 package com.example.a4thsemproject;
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.util.Log;
 
@@ -19,6 +22,8 @@ public class customerInfo extends AppCompatActivity {
     int age;
     String uid;
     Button submit;
+    RadioGroup radioGroup;
+    String choice;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,6 +32,8 @@ public class customerInfo extends AppCompatActivity {
          dob=findViewById(R.id.editTextDateOfBirth);
          submit=findViewById(R.id.submitButton);
         uid = getIntent().getStringExtra("UID");
+        radioGroup=findViewById(R.id.radioGroupGender);
+
 
 
         name.getText(); //get text from the user
@@ -39,8 +46,15 @@ public class customerInfo extends AppCompatActivity {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                int selectedId = radioGroup.getCheckedRadioButtonId();
+                if (selectedId != -1) {
+                    RadioButton selectedRadioButton = findViewById(selectedId);
+                    choice = selectedRadioButton.getText().toString();
+                }
                 customer_information_fireS store_firestore=new customer_information_fireS(uid);
-                store_firestore.send_to_firestore(name.getText().toString(),age);
+                store_firestore.send_to_firestore(name.getText().toString(),age,choice);
+
+                go_to_login();
 
             }
         });
@@ -81,6 +95,11 @@ public class customerInfo extends AppCompatActivity {
 //        ageText.setText(ageTextString);
         Log.i("Age", String.valueOf(age));
 
+    }
+    public void go_to_login()
+    {
+        Intent intent=new Intent(this, home.class);
+        startActivity(intent);
     }
 
 }

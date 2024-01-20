@@ -19,6 +19,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.ktx.Firebase;
 
 public class home extends AppCompatActivity {
+    String uid;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,6 +44,8 @@ public class home extends AppCompatActivity {
                         if (task.isSuccessful())
                         {
                             Toast.makeText(home.this,"Sign In Sucessful",Toast.LENGTH_SHORT).show();
+                            uid = auth.getCurrentUser().getUid();
+                            go_to_user_profile();
                         }
                         else {
                             Toast.makeText(home.this,"Failed. Try Again Later",Toast.LENGTH_SHORT).show();
@@ -67,6 +70,12 @@ public class home extends AppCompatActivity {
         Intent RegistertPage=new Intent(this,register_info.class);
         startActivity(RegistertPage);
 
+    }
+    public void go_to_user_profile()
+    {
+        Intent intent=new Intent(this,user_profile.class);
+        intent.putExtra("uid",uid);
+        startActivity(intent);
     }
 }
 

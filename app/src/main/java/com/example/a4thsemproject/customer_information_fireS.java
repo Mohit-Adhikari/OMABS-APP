@@ -24,12 +24,13 @@ public class customer_information_fireS {
         this.db = FirebaseFirestore.getInstance();
         this.userRef = db.collection("users").document(uid);
     }
-    public void send_to_firestore(String name,int age){
+    public void send_to_firestore(String name,int age,String choice){
 
         Map<String, Object> userData = new HashMap<>();
         //userData.put("userType","patient");
         userData.put("name",  name);
         userData.put("age",  age);
+        userData.put("gender",choice);
         userRef.set(userData)
                 .addOnSuccessListener(aVoid -> Log.d(TAG, "User document successfully written!"))
                 .addOnFailureListener(e -> Log.w(TAG, "Error writing document", e));
