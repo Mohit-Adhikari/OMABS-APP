@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class register_info extends AppCompatActivity {
+    String uid;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +32,8 @@ public class register_info extends AppCompatActivity {
                         .addOnCompleteListener(register_info.this, task -> {
                             if (task.isSuccessful()) {
                                 Toast.makeText(register_info.this,"New Account Made",Toast.LENGTH_SHORT).show();
+                                uid = auth.getCurrentUser().getUid();
+                               //linkUIDToFirestore(uid);
                                 start_get_patient_info();
                             } else {
                                 Toast.makeText(register_info.this,"Failed Authentication",Toast.LENGTH_SHORT).show();
@@ -43,7 +46,9 @@ public class register_info extends AppCompatActivity {
     }
     public void start_get_patient_info()
     {
+
         Intent customerInfoPage=new Intent(this,customerInfo.class);
+        customerInfoPage.putExtra("UID", uid);
         startActivity(customerInfoPage);
     }
 }

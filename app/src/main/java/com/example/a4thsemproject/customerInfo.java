@@ -3,6 +3,7 @@ package com.example.a4thsemproject;
 import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -15,11 +16,18 @@ import java.util.Calendar;
 public class customerInfo extends AppCompatActivity {
     EditText name;
     EditText dob;
+    int age;
+    String uid;
+    Button submit;
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.customer_info);
         name=findViewById(R.id.editTextName);
          dob=findViewById(R.id.editTextDateOfBirth);
+         submit=findViewById(R.id.submitButton);
+        uid = getIntent().getStringExtra("UID");
+
 
         name.getText(); //get text from the user
         dob.setOnClickListener(new View.OnClickListener() {
@@ -28,6 +36,15 @@ public class customerInfo extends AppCompatActivity {
                 showDatePickerDialog();
             }
         });
+        submit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                customer_information_fireS store_firestore=new customer_information_fireS(uid);
+                store_firestore.send_to_firestore(name.getText().toString(),age);
+
+            }
+        });
+
 
 
 
@@ -54,7 +71,7 @@ public class customerInfo extends AppCompatActivity {
 
         Calendar currentCalendar = Calendar.getInstance();
 
-        int age = currentCalendar.get(Calendar.YEAR) - dobCalendar.get(Calendar.YEAR);
+        age = currentCalendar.get(Calendar.YEAR) - dobCalendar.get(Calendar.YEAR);
 
         if (currentCalendar.get(Calendar.DAY_OF_YEAR) < dobCalendar.get(Calendar.DAY_OF_YEAR)) {
             age--;
@@ -63,5 +80,7 @@ public class customerInfo extends AppCompatActivity {
 //        String ageTextString = getString(R.string.age_text, age);
 //        ageText.setText(ageTextString);
         Log.i("Age", String.valueOf(age));
+
     }
+
 }
