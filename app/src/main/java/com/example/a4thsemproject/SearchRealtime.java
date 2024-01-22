@@ -34,31 +34,32 @@ public class SearchRealtime extends AppCompatActivity {
 
 
 
-        databaseReference = FirebaseDatabase.getInstance().getReference("doctors").child("eye");
-        databaseReference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                // This method is called once with the initial value and whenever data at this location is updated.
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    // Access data using snapshot.getValue()
-                    String name = snapshot.getKey(); //getValue(String.class);
-                    // Do something with the data
-                    Log.d("FirebaseData", name);
 
-                    myArrayList.add(name);
-
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-                // Handle errors
-                Log.e("FirebaseError", "Error fetching data", databaseError.toException());
-            }
-        });
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                databaseReference = FirebaseDatabase.getInstance().getReference("doctors").child("eye");
+                databaseReference.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        // This method is called once with the initial value and whenever data at this location is updated.
+                        for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                            // Access data using snapshot.getValue()
+                            String name = snapshot.getKey(); //getValue(String.class);
+                            // Do something with the data
+                            Log.d("FirebaseData", name);
+
+                            myArrayList.add(name);
+
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+                        // Handle errors
+                        Log.e("FirebaseError", "Error fetching data", databaseError.toException());
+                    }
+                });
                 status=search.getText().toString();
                 for(String doctors: myArrayList)
                 {
