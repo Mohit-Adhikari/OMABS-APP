@@ -3,12 +3,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <!-- Replace AutoCompleteTextView with TextView -->
+    <TextView
+        android:id="@+id/searchTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Search..."
+        android:layout_marginTop="16dp"
+        android:layout_centerHorizontal="true"/>
+
     <TextView
         android:id="@+id/nameTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Mohit Sir"
         android:textSize="18sp"
+        android:layout_below="@id/searchTextView"
         android:layout_marginTop="16dp"
         android:layout_centerHorizontal="true"/>
 

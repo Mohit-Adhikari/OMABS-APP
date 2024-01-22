@@ -2,10 +2,15 @@ package com.example.a4thsemproject;
 
 import static androidx.constraintlayout.helper.widget.MotionEffect.TAG;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -13,12 +18,24 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class user_profile extends AppCompatActivity {
     String uid;
     TextView name;
     TextView age;
     TextView gender;
+    List<String> myStringList = new ArrayList<>();
+
+    TextView search;
 
 
 
@@ -29,6 +46,7 @@ public class user_profile extends AppCompatActivity {
             age=findViewById(R.id.ageTextView);
             gender=findViewById(R.id.genderTextView);
             uid = getIntent().getStringExtra("uid");
+            search=findViewById(R.id.searchTextView);
 
             FirebaseFirestore database = FirebaseFirestore.getInstance();
             DocumentReference userRef= database.collection("users").document(uid);
@@ -62,7 +80,13 @@ public class user_profile extends AppCompatActivity {
                             }
                         }
                     });
-
+           search.setOnClickListener(new View.OnClickListener() {
+               @Override
+               public void onClick(View v) {
+                   Intent search_doctor=new Intent(user_profile.this, SearchRealtime.class);
+                   startActivity(search_doctor);
+               }
+           });
 
         }
 }
