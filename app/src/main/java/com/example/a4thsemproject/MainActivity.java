@@ -23,7 +23,12 @@ public class MainActivity extends AppCompatActivity {
                 startPatient();
             }
         });
-
+        doctor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startDoctors();
+            }
+        });
 
     }
     public void startPatient()
@@ -31,5 +36,10 @@ public class MainActivity extends AppCompatActivity {
         Intent PatientPage=new Intent(this,home.class);
         startActivity(PatientPage);
 
+    }
+    public void startDoctors()
+    {
+        Intent DoctorPage=new Intent(this,doctor_home.class);
+        startActivity(DoctorPage);
     }
 }
