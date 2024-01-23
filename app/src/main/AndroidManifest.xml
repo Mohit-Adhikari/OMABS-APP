@@ -21,6 +21,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".home"></activity>
+        <activity android:name=".register_info"></activity>
+        <activity android:name=".customerInfo"></activity>
+        <activity android:name=".user_profile"></activity>
+        <activity android:name=".SearchRealtime"></activity>
+        <activity android:name=".doctor_home"></activity>
+        <activity android:name=".register_info_doctor"></activity>
+        <activity android:name=".doctorInfo"></activity>
+        <activity android:name="user_profile_doctor"></activity>
+        <activity android:name=".assignRealtime"></activity>
     </application>
 
 </manifest>
