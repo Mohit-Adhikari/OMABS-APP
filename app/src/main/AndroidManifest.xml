@@ -31,6 +31,7 @@
         <activity android:name=".doctorInfo"></activity>
         <activity android:name="user_profile_doctor"></activity>
         <activity android:name=".assignRealtime"></activity>
+        <activity android:name=".available_doctors"></activity>
     </application>
 
 </manifest>
