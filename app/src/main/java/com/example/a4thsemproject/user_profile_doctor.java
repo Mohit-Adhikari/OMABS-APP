@@ -37,20 +37,30 @@ public class user_profile_doctor extends AppCompatActivity {
 
     TextView search;
     String namef;
+    TextView hospital;
+    TextView speciality;
+    int agef;
+    String genderf;
+    String hospital_name;
+    String specialization;
+
+
 
 
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.user_profile);
+        setContentView(R.layout.profile_doctor);
         name=findViewById(R.id.nameTextView);
         age=findViewById(R.id.ageTextView);
         gender=findViewById(R.id.genderTextView);
         uid = getIntent().getStringExtra("uid");
         search=findViewById(R.id.searchTextView);
+        hospital=findViewById(R.id.hospitalTextView);
+        speciality=findViewById(R.id.specializationTextView);
 
         FirebaseFirestore database = FirebaseFirestore.getInstance();
-        DocumentReference userRef= database.collection("users").document(uid);
+        DocumentReference userRef= database.collection("doctors").document(uid);
 
         userRef.get()
                 .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
@@ -61,8 +71,10 @@ public class user_profile_doctor extends AppCompatActivity {
                             if (document.exists()) {
                                 // Data is available in the document
                                 namef = document.getString("name");
-                                int agef = document.getLong("age").intValue(); // Assuming "age" is stored as a number
-                                String genderf = document.getString("gender");
+                                agef = document.getLong("age").intValue(); // Assuming "age" is stored as a number
+                                genderf = document.getString("gender");
+                                hospital_name=document.getString("hospital");
+                                specialization=document.getString("specialization");
                                 name.setText(namef);
                                 age.setText(String.valueOf(agef));
                                 gender.setText(genderf);
@@ -81,17 +93,32 @@ public class user_profile_doctor extends AppCompatActivity {
                         }
                     }
                 });
+        search.setText("Want to go live?");
         search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent set_live=new Intent(user_profile_doctor.this, assignRealtime.class);
-                set_live.putExtra("uid",uid);
-                set_live.putExtra("namef",namef);
+                //Intent set_live=new Intent(user_profile_doctor.this, assignRealtime.class);
+                //set_live.putExtra("uid",uid);
+                //startActivity(set_live);
+                start_assaignRealtime();
 
-                startActivity(set_live);
             }
         });
 
+
+
+
     }
+    public void start_assaignRealtime(){
+        Intent set_live=new Intent(user_profile_doctor.this, assignRealtime.class);
+        set_live.putExtra("uid",uid);
+        set_live.putExtra("namef",namef);
+        set_live.putExtra("age",agef);
+        set_live.putExtra("gender",genderf);
+        set_live.putExtra("hospital",hospital_name);
+        set_live.putExtra("speciality",specialization);
+        startActivity(set_live);
+    }
+
 }
 

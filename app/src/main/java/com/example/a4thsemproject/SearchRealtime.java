@@ -1,5 +1,6 @@
 package com.example.a4thsemproject;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -24,6 +25,7 @@ public class SearchRealtime extends AppCompatActivity {
     private DatabaseReference databaseReference;
     String status;
     ArrayList<String> myArrayList = new ArrayList<>();
+    ArrayList<String> myArrayList_doctors=new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,14 +33,15 @@ public class SearchRealtime extends AppCompatActivity {
         EditText search=findViewById(R.id.editTextSearch);
         Button submit=findViewById(R.id.buttonSearch);
         TextView availability=findViewById(R.id.textViewNotAvailable);
-
+        //TextView doctors=findViewById(R.id.editTextSearchDoctors);
+        //Button s_doctors=findViewById(R.id.buttonSearchDoctors);
 
 
 
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                databaseReference = FirebaseDatabase.getInstance().getReference("doctors").child("eye");
+                databaseReference = FirebaseDatabase.getInstance().getReference("doctors");
                 databaseReference.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -48,7 +51,6 @@ public class SearchRealtime extends AppCompatActivity {
                             String name = snapshot.getKey(); //getValue(String.class);
                             // Do something with the data
                             Log.d("FirebaseData", name);
-
                             myArrayList.add(name);
 
                         }
@@ -61,12 +63,16 @@ public class SearchRealtime extends AppCompatActivity {
                     }
                 });
                 status=search.getText().toString();
-                for(String doctors: myArrayList)
+                for(String specialization: myArrayList)
                 {
                     //Log.i("search", search.getText().toString());
-                    if (status.equals(doctors)==true)
-                    {   Log.i("Doctors",doctors);
-                        availability.setText(doctors + " is available.");
+                    if (status.equals(specialization)==true)
+                    {   Log.i("Doctors",specialization);
+                        availability.setText(specialization + " is available.");
+                        Intent start_available_doctors=new Intent(SearchRealtime.this,available_doctors.class);
+                        start_available_doctors.putExtra("specialization",specialization);
+                        startActivity(start_available_doctors);
+
                         break;
                     }
                     else {

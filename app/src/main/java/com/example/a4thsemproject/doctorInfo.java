@@ -4,6 +4,8 @@ import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -24,19 +26,29 @@ public class doctorInfo extends AppCompatActivity {
     Button submit;
     RadioGroup radioGroup;
     String choice;
+    String speciality;
+    EditText hospital;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.customer_info);
+        setContentView(R.layout.doctor_info);
         name=findViewById(R.id.editTextName);
         dob=findViewById(R.id.editTextDateOfBirth);
         submit=findViewById(R.id.submitButton);
+        //speciality=findViewById(R.id.autoCompleteSpecialty);
+        hospital=findViewById(R.id.editTextHospital);
+
         uid = getIntent().getStringExtra("UID");
         radioGroup=findViewById(R.id.radioGroupGender);
 
 
+        String[] specialties = {"Cardiology", "Dermatology", "Orthopedics", "Pediatrics", "Neurology"};
+        AutoCompleteTextView specialization=findViewById(R.id.autoCompleteSpecialty);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_dropdown_item_1line, specialties);
+        specialization.setAdapter(adapter);
+        //name.getText(); //get text from the user
 
-        name.getText(); //get text from the user
+
         dob.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -50,9 +62,11 @@ public class doctorInfo extends AppCompatActivity {
                 if (selectedId != -1) {
                     RadioButton selectedRadioButton = findViewById(selectedId);
                     choice = selectedRadioButton.getText().toString();
+
                 }
-                customer_information_fireS store_firestore=new customer_information_fireS(uid);
-                store_firestore.send_to_firestore(name.getText().toString(),age,choice);
+
+                customer_information_fireS store_firestore=new customer_information_fireS(uid,"doctors");
+                store_firestore.send_to_firestore(name.getText().toString(),age,choice,specialization.getText().toString(),hospital.getText().toString());
 
                 go_to_login();
 

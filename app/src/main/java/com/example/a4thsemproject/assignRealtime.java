@@ -26,46 +26,62 @@ import java.util.Map;
 public class assignRealtime extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        String uid, namef;
+        setContentView(R.layout.assign_realtime);
+        String uid, namef,agef,genderf,hospital,speciality;
         setContentView(R.layout.assign_realtime);
         Button live = findViewById(R.id.myButton);
         uid = getIntent().getStringExtra("uid");
         namef = getIntent().getStringExtra("namef");
+        agef=String.valueOf(getIntent().getStringExtra("age"));
+        genderf=getIntent().getStringExtra("gender");
+        hospital=getIntent().getStringExtra("hospital");
+        speciality=getIntent().getStringExtra("speciality");
         FirebaseDatabase database_add = FirebaseDatabase.getInstance();
         DatabaseReference doctorsRef = database_add.getReference("doctors");
 
-        String doctorId = "eye";
+        live.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //String doctorId="eye";
+                //String doctorId = speciality;
 
 
-        Map<String, Object> doctorData = new HashMap<>();
+
+                Map<String, Object> doctorData = new HashMap<>();
+                doctorData.put("age:",agef);
+                doctorData.put("gender",genderf);
+                doctorData.put("hospital",hospital);
+
+                Map<String, Object> appointmentSlots = new HashMap<>();
+                appointmentSlots.put("10 00", true);
+                appointmentSlots.put("10 30", false);
+                appointmentSlots.put("11 00", true);
+                appointmentSlots.put("11 30", true);
+                appointmentSlots.put("12 00", true);
+                appointmentSlots.put("12 30", true);
+                appointmentSlots.put("13 00", true);
+                appointmentSlots.put("13 30", true);
+                appointmentSlots.put("14 00", true);
+                appointmentSlots.put("14 30", true);
+                doctorData.put("appointment_slots", appointmentSlots);
+                doctorsRef.child(speciality).child(namef).setValue(doctorData)
+                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void aVoid) {
+                                Log.d(TAG, "Data successfully written to Realtime Database!");
+                            }
+                        })
+                        .addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                Log.w(TAG, "Error writing data to Realtime Database", e);
+                            }
+                        });
+
+            }
+        });
 
 
-
-        Map<String, Object> appointmentSlots = new HashMap<>();
-        appointmentSlots.put("10 00", true);
-        appointmentSlots.put("10 30", false);
-        appointmentSlots.put("11 00", true);
-        appointmentSlots.put("11 30", true);
-        appointmentSlots.put("12 00", true);
-        appointmentSlots.put("12 30", true);
-        appointmentSlots.put("13 00", true);
-        appointmentSlots.put("13 30", true);
-        appointmentSlots.put("14 00", true);
-        appointmentSlots.put("14 30", true);
-        doctorData.put("appointment_slots", appointmentSlots);
-        doctorsRef.child(doctorId).child(namef).setValue(doctorData)
-                .addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void aVoid) {
-                        Log.d(TAG, "Data successfully written to Realtime Database!");
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Log.w(TAG, "Error writing data to Realtime Database", e);
-                    }
-                });
     }
 
 }
