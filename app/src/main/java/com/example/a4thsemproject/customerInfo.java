@@ -51,7 +51,7 @@ public class customerInfo extends AppCompatActivity {
                     RadioButton selectedRadioButton = findViewById(selectedId);
                     choice = selectedRadioButton.getText().toString();
                 }
-                customer_information_fireS store_firestore=new customer_information_fireS(uid);
+                customer_information_fireS store_firestore=new customer_information_fireS(uid,"users");
                 store_firestore.send_to_firestore(name.getText().toString(),age,choice);
 
                 go_to_login();

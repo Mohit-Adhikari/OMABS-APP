@@ -3,10 +3,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <!-- Existing UI elements -->
+
     <EditText
         android:id="@+id/editTextSearch"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
         android:hint="Search..."
         android:inputType="text"/>
 
@@ -15,6 +19,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/editTextSearch"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="8dp"
         android:text="Search"/>
 
@@ -23,10 +28,31 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/buttonSearch"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="8dp"
         android:text="Not Available"/>
-        <!--android:visibility="gone"/>-->
 
-    <!-- You can add other UI elements or RecyclerView for displaying search results below this -->
+    <!-- Additional UI elements -->
+
+    <EditText
+        android:id="@+id/editTextSearchDoctors"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewNotAvailable"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp"
+        android:hint="Search Doctors"
+        android:inputType="text"/>
+
+    <Button
+        android:id="@+id/buttonSearchDoctors"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextSearchDoctors"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp"
+        android:text="Search"/>
+
+    <!-- You can continue adding other UI elements or RecyclerView for displaying search results below this -->
 
 </RelativeLayout>

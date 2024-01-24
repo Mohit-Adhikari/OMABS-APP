@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
-    tools:context=".customerInfo">
+    tools:context=".doctorInfo">
 
     <!-- Name Input -->
     <EditText
@@ -43,6 +43,21 @@
         android:hint="Date of Birth"
         android:focusable="false"
         android:onClick="showDatePickerDialog"/>
+
+    <!-- Specialty AutoCompleteTextView -->
+    <AutoCompleteTextView
+        android:id="@+id/autoCompleteSpecialty"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Specialty"
+        android:completionThreshold="1"/> <!-- Set the threshold as needed -->
+
+    <!-- Hospital Input -->
+    <EditText
+        android:id="@+id/editTextHospital"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Hospital"/>
 
     <!-- Submit Button -->
     <Button
