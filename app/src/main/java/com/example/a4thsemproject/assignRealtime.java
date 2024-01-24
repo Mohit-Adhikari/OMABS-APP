@@ -32,8 +32,8 @@ public class assignRealtime extends AppCompatActivity {
         Button live = findViewById(R.id.myButton);
         uid = getIntent().getStringExtra("uid");
         namef = getIntent().getStringExtra("namef");
-        agef=String.valueOf(getIntent().getStringExtra("agef"));
-        genderf=getIntent().getStringExtra("genderf");
+        agef=String.valueOf(getIntent().getStringExtra("age"));
+        genderf=getIntent().getStringExtra("gender");
         hospital=getIntent().getStringExtra("hospital");
         speciality=getIntent().getStringExtra("speciality");
         FirebaseDatabase database_add = FirebaseDatabase.getInstance();
