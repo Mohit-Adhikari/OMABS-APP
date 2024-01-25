@@ -65,6 +65,7 @@ public class user_profile extends AppCompatActivity {
                                     name.setText(namef);
                                     age.setText(String.valueOf(agef));
                                     gender.setText(genderf);
+                                    DataHolder.getInstance().setData(namef, genderf, String.valueOf(agef));
 
 
                                     Log.d(TAG, "Name: " + namef);

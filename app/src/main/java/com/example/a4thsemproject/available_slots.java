@@ -37,7 +37,7 @@ public class available_slots extends AppCompatActivity {
                     for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                         String time = dataSnapshot.getKey();
                         Log.i("availability time", time);
-                        boolean availability = dataSnapshot.getValue(Boolean.class);
+                        String availability = String.valueOf(dataSnapshot.getValue(Boolean.class));
                         Log.i("availability type", String.valueOf(availability));
                         //PlaceHolder 1
                         //Log.i("beauty",time);
@@ -57,7 +57,7 @@ public class available_slots extends AppCompatActivity {
         });
 
     }
-    private void addTextView(String time,boolean availability)
+    private void addTextView(String time,String availability)
     {
         RelativeLayout layout = findViewById(R.id.layout);
         RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(
@@ -67,7 +67,7 @@ public class available_slots extends AppCompatActivity {
         if (layout.getChildCount() > 0) {
             params.addRule(RelativeLayout.BELOW, layout.getChildAt(layout.getChildCount() - 1).getId());
         }
-        if(availability==true)
+        if(availability.equals("true")==true)
         {
             TextView textView = new TextView(this);
             textView.setLayoutParams(params);
