@@ -6,8 +6,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -69,6 +71,7 @@ public class user_profile extends AppCompatActivity {
                                     name.setText(namef);
                                     age.setText(String.valueOf(agef));
                                     gender.setText(genderf);
+                                    DataHolder.getInstance().setData(namef, genderf, String.valueOf(agef));
 
 
                                     Log.d(TAG, "Name: " + namef);
@@ -84,14 +87,15 @@ public class user_profile extends AppCompatActivity {
                             }
                         }
                     });
+
            search.setOnClickListener(new View.OnClickListener() {
                @Override
                public void onClick(View v) {
                    Intent search_doctor=new Intent(user_profile.this, SearchRealtime.class);
                    startActivity(search_doctor);
+                    finish();
                }
            });
-           //d_name=getIntent().getStringExtra("doctor_name");
 
 
         }
