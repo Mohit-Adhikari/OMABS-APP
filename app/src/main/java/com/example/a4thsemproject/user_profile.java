@@ -36,6 +36,9 @@ public class user_profile extends AppCompatActivity {
     List<String> myStringList = new ArrayList<>();
 
     TextView search;
+    String d_name;
+    String d_specialization;
+    String d_time;
 
 
 
@@ -46,6 +49,7 @@ public class user_profile extends AppCompatActivity {
             age=findViewById(R.id.ageTextView);
             gender=findViewById(R.id.genderTextView);
             uid = getIntent().getStringExtra("uid");
+
             search=findViewById(R.id.searchTextView);
 
             FirebaseFirestore database = FirebaseFirestore.getInstance();
@@ -87,7 +91,10 @@ public class user_profile extends AppCompatActivity {
                    startActivity(search_doctor);
                }
            });
+           //d_name=getIntent().getStringExtra("doctor_name");
+
 
         }
+
 }
 

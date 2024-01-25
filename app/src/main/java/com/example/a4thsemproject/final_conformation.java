@@ -1,9 +1,11 @@
 package com.example.a4thsemproject;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -33,7 +35,14 @@ public class final_conformation extends AppCompatActivity {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 databaseReference.child(time).setValue(false);
+                Toast.makeText(final_conformation.this,"Your booking has been Conformed",Toast.LENGTH_SHORT).show();
+                Intent intent=new Intent(final_conformation.this,user_profile.class);
+                intent.putExtra("doctor's name",name);
+                intent.putExtra("doctor_specialization",specialization);
+                intent.putExtra("time",time);
+                startActivity(intent);
             }
         });
 
