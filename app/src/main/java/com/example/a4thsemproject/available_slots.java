@@ -17,28 +17,31 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.HashMap;
+
 public class available_slots extends AppCompatActivity {
     private DatabaseReference databaseReference;
-    boolean flag=true;
+    boolean flag = true;
     String name;
     String specialization;
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.available_doctors);
-        name=getIntent().getStringExtra("name");
-        specialization=getIntent().getStringExtra("specialization");
-        databaseReference= FirebaseDatabase.getInstance().getReference("doctors").child(specialization).child(name).child("appointment_slots");
-        String slot[]={"10","10.30","11","11.30","12","12.30","1","1.30","2","2.30"};
+        name = getIntent().getStringExtra("name");
+        specialization = getIntent().getStringExtra("specialization");
+        databaseReference = FirebaseDatabase.getInstance().getReference("doctors").child(specialization).child(name).child("appointment_slots");
+        String slot[] = {"10", "10.30", "11", "11.30", "12", "12.30", "1", "1.30", "2", "2.30"};
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                while(flag) {
+                while (flag) {
 
                     for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                         String time = dataSnapshot.getKey();
                         Log.i("availability time", time);
-                        String availability = dataSnapshot.getValue(Boolean.class).toString();
-                        Log.i("availability type", String.valueOf(availability));
+                        Object availability = dataSnapshot.getValue();
+                        // Log.i("availability type", String.valueOf(availability));
                         //PlaceHolder 1
                         //Log.i("beauty",time);
                         //Log.i("availability type",dataSnapshot.child("10 00").getValue(boolean.class).toString());
@@ -57,8 +60,8 @@ public class available_slots extends AppCompatActivity {
         });
 
     }
-    private void addTextView(String time,String availability)
-    {
+
+    private void addTextView(String time, Object availability) {
         RelativeLayout layout = findViewById(R.id.layout);
         RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(
                 ViewGroup.LayoutParams.WRAP_CONTENT,
@@ -67,34 +70,38 @@ public class available_slots extends AppCompatActivity {
         if (layout.getChildCount() > 0) {
             params.addRule(RelativeLayout.BELOW, layout.getChildAt(layout.getChildCount() - 1).getId());
         }
-        if(availability.equals("true")==true)
-        {
-            TextView textView = new TextView(this);
-            textView.setLayoutParams(params);
-            textView.setText(time+"\n");
-            textView.setBackgroundResource(R.drawable.text_view_background);
-            textView.setPadding(16, 16, 16, 16);
 
-            // Generate a unique ID for each TextView
-            int id = View.generateViewId();
-            textView.setId(id);
-            layout.addView(textView);
-            textView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
+        if (availability instanceof String) {
+            String availabilityString = (String) availability;
+            if ("true".equals(availabilityString)) {
+                TextView textView = new TextView(this);
+                textView.setLayoutParams(params);
+                textView.setText(time + "\n");
+                textView.setBackgroundResource(R.drawable.text_view_background);
+                textView.setPadding(16, 16, 16, 16);
 
-                    Intent intent=new Intent(available_slots.this,final_conformation.class);
-                    intent.putExtra("time",time);
-                    intent.putExtra("name",name);
-                    intent.putExtra("specialization",specialization);
+                int id = View.generateViewId();
+                textView.setId(id);
+                layout.addView(textView);
 
-                    startActivity(intent);
-                }
-            });
+                textView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(available_slots.this, final_conformation.class);
+                        intent.putExtra("time", time);
+                        intent.putExtra("name", name);
+                        intent.putExtra("specialization", specialization);
+                        startActivity(intent);
+                    }
+                });
 
-            flag=false;
+                flag = false;
+            }
+        } else if (availability instanceof HashMap) {
+            // Handle HashMap case if needed
+            // You can access specific values from the HashMap as per your requirement
+            // For example: HashMap<String, Object> hashMap = (HashMap<String, Object>) availability;
+            Log.i("Hashish", "Instance of hashmap");
         }
-
-
     }
 }

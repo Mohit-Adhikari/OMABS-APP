@@ -53,16 +53,16 @@ public class assignRealtime extends AppCompatActivity {
                 doctorData.put("hospital",hospital);
 
                 Map<String, Object> appointmentSlots = new HashMap<>();
-                appointmentSlots.put("10 00", true);
-                appointmentSlots.put("10 30", false);
-                appointmentSlots.put("11 00", true);
-                appointmentSlots.put("11 30", true);
-                appointmentSlots.put("12 00", true);
-                appointmentSlots.put("12 30", true);
-                appointmentSlots.put("13 00", true);
-                appointmentSlots.put("13 30", true);
-                appointmentSlots.put("14 00", true);
-                appointmentSlots.put("14 30", true);
+                appointmentSlots.put("10 00", "true");
+                appointmentSlots.put("10 30", "true");
+                appointmentSlots.put("11 00", "true");
+                appointmentSlots.put("11 30", "true");
+                appointmentSlots.put("12 00", "true");
+                appointmentSlots.put("12 30", "true");
+                appointmentSlots.put("13 00", "true");
+                appointmentSlots.put("13 30", "true");
+                appointmentSlots.put("14 00", "true");
+                appointmentSlots.put("14 30", "true");
                 doctorData.put("appointment_slots", appointmentSlots);
                 doctorsRef.child(speciality).child(namef).setValue(doctorData)
                         .addOnSuccessListener(new OnSuccessListener<Void>() {
