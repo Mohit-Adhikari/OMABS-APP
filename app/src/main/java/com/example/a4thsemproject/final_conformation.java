@@ -10,6 +10,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class final_conformation extends AppCompatActivity {
     String name;
     String specialization;
@@ -30,10 +33,19 @@ public class final_conformation extends AppCompatActivity {
         doctor_name.setText(name);
         doctor_speciality.setText(specialization);
         doctor_time.setText(time);
+        String dname = DataHolder.getInstance().getName();
+        String dgender = DataHolder.getInstance().getGender();
+        String dage = DataHolder.getInstance().getAge();
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 databaseReference.child(time).setValue(false);
+                Map<String,Object> patient=new HashMap<>();
+                patient.put("name",dname);
+                patient.put("gender",dgender);
+                patient.put("age",dage);
+                databaseReference.child(time).setValue(patient);
+
             }
         });
 
