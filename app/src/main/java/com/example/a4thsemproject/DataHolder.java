@@ -31,4 +31,8 @@ public class DataHolder {
     {
         return age;
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> c83d24f262b27e0a5c5d312a32ac316777fea9fe

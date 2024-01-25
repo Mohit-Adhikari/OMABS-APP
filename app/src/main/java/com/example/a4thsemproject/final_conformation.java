@@ -1,10 +1,12 @@
 package com.example.a4thsemproject;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -39,6 +41,11 @@ public class final_conformation extends AppCompatActivity {
             public void onClick(View v) {
 
                 databaseReference.child(time).setValue(false);
+<<<<<<< HEAD
+=======
+                //Toast.makeText(final_conformation.this,"Your booking has been Conformed",Toast.LENGTH_SHORT).show();
+                //databaseReference.child("time").child("patient_name").setValue();
+>>>>>>> c83d24f262b27e0a5c5d312a32ac316777fea9fe
                 String name_p=DataHolder.getInstance().getName();
                 String age_p=DataHolder.getInstance().getAge();
                 String gender_p=DataHolder.getInstance().getGender();
@@ -48,9 +55,22 @@ public class final_conformation extends AppCompatActivity {
                 patient_Data.put("gender",gender_p);
                 Log.i("patient",name_p);
                 databaseReference.child(time).child(name_p).setValue(patient_Data);
+<<<<<<< HEAD
+=======
+                //start_user_profile();
+                //finish();
+
+
+
+>>>>>>> c83d24f262b27e0a5c5d312a32ac316777fea9fe
 
             }
         });
 
     }
+    /*private void start_user_profile()
+    {    Log.d("Debug", "Starting user_profile activity");
+        Intent intent=new Intent(final_conformation.this, user_profile.class);
+        startActivity(intent);
+    }*/
 }

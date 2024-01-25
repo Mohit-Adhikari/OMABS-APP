@@ -85,6 +85,7 @@ public class available_doctors extends AppCompatActivity {
                 Intent intent=new Intent(available_doctors.this,available_slots.class);
                 intent.putExtra("name",name);
                 intent.putExtra("specialization",specialization);
+                intent.putExtra("age",age);
                 startActivity(intent);
 
             }
