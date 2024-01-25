@@ -58,4 +58,15 @@
         android:layout_below="@id/hospitalTextView"
         android:layout_marginTop="8dp"
         android:layout_centerHorizontal="true"/>
+
+    <!-- Button at the bottom -->
+    <Button
+        android:id="@+id/myButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="See appointment log"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="16dp"/>
+
 </RelativeLayout>

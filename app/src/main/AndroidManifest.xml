@@ -34,6 +34,7 @@
         <activity android:name=".available_doctors"></activity>
         <activity android:name=".available_slots"></activity>
         <activity android:name=".final_conformation"></activity>
+        <activity android:name=".patient_log"></activity>
     </application>
 
 </manifest>

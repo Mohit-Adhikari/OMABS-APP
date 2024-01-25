@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -43,6 +44,7 @@ public class user_profile_doctor extends AppCompatActivity {
     String genderf;
     String hospital_name;
     String specialization;
+    Button log;
 
 
 
@@ -58,6 +60,7 @@ public class user_profile_doctor extends AppCompatActivity {
         search=findViewById(R.id.searchTextView);
         hospital=findViewById(R.id.hospitalTextView);
         speciality=findViewById(R.id.specializationTextView);
+        log=findViewById(R.id.myButton);
 
         FirebaseFirestore database = FirebaseFirestore.getInstance();
         DocumentReference userRef= database.collection("doctors").document(uid);
@@ -104,7 +107,15 @@ public class user_profile_doctor extends AppCompatActivity {
 
             }
         });
-
+        log.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(user_profile_doctor.this,patient_log.class);
+                intent.putExtra("specialization",specialization);
+                intent.putExtra("name",namef);
+                startActivity(intent);
+            }
+        });
 
 
 
