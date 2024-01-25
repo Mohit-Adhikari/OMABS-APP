@@ -30,6 +30,7 @@ public class assignRealtime extends AppCompatActivity {
         String uid, namef,agef,genderf,hospital,speciality;
         setContentView(R.layout.assign_realtime);
         Button live = findViewById(R.id.myButton);
+        Button stop=findViewById(R.id.goOfflineButton);
         uid = getIntent().getStringExtra("uid");
         namef = getIntent().getStringExtra("namef");
         agef=String.valueOf(getIntent().getStringExtra("age"));
@@ -78,6 +79,27 @@ public class assignRealtime extends AppCompatActivity {
                             }
                         });
 
+            }
+        });
+        stop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                doctorsRef.child(speciality).child(namef).removeValue()
+                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void aVoid) {
+                                // Data has been deleted successfully
+                                // You can add your code here
+                                Log.i("Offline Sucess","sucess");
+                            }
+                        })
+                        .addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                // Handle the error
+                                // You can add your code here to handle failures
+                            }
+                        });
             }
         });
 

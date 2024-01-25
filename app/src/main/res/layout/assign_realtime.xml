@@ -12,4 +12,13 @@
         android:text="Go live"
         android:layout_centerInParent="true"/>
 
+    <Button
+        android:id="@+id/goOfflineButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Go Offline"
+        android:layout_below="@id/myButton"
+        android:layout_marginTop="16dp"
+        android:layout_centerHorizontal="true"/>
+
 </RelativeLayout>
