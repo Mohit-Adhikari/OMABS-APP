@@ -42,7 +42,7 @@ public class doctorInfo extends AppCompatActivity {
         radioGroup=findViewById(R.id.radioGroupGender);
 
 
-        String[] specialties = {"Cardiology", "Dermatology", "Orthopedics", "Pediatrics", "Neurology"};
+        String[] specialties = {"Cardiology", "Dermatology", "Orthopedics", "Pediatrics", "Neurology","General","Opthalmology","Maternal"};
         AutoCompleteTextView specialization=findViewById(R.id.autoCompleteSpecialty);
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_dropdown_item_1line, specialties);
         specialization.setAdapter(adapter);

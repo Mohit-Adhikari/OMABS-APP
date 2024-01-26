@@ -1,12 +1,16 @@
 package com.example.a4thsemproject;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -44,7 +48,14 @@ public class final_conformation extends AppCompatActivity {
                 patient.put("name",dname);
                 patient.put("gender",dgender);
                 patient.put("age",dage);
-                databaseReference.child(time).setValue(patient);
+                databaseReference.child(time).setValue(patient).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        Intent intent=new Intent(final_conformation.this,thank_you.class);
+                        startActivity(intent);
+                    }
+                });
+
 
             }
         });

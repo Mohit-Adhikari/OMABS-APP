@@ -21,4 +21,13 @@
         android:layout_marginTop="16dp"
         android:layout_centerHorizontal="true"/>
 
+    <TextView
+        android:id="@+id/availabilityTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Availability"
+        android:layout_below="@id/goOfflineButton"
+        android:layout_marginTop="16dp"
+        android:layout_centerHorizontal="true"/>
+
 </RelativeLayout>

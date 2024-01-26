@@ -31,7 +31,7 @@ public class available_slots extends AppCompatActivity {
         name = getIntent().getStringExtra("name");
         specialization = getIntent().getStringExtra("specialization");
         databaseReference = FirebaseDatabase.getInstance().getReference("doctors").child(specialization).child(name).child("appointment_slots");
-        String slot[] = {"10", "10.30", "11", "11.30", "12", "12.30", "1", "1.30", "2", "2.30"};
+        //String slot[] = {"10", "10.30", "11", "11.30", "12", "12.30", "1", "1.30", "2", "2.30"};
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -70,10 +70,11 @@ public class available_slots extends AppCompatActivity {
         if (layout.getChildCount() > 0) {
             params.addRule(RelativeLayout.BELOW, layout.getChildAt(layout.getChildCount() - 1).getId());
         }
-
+        Log.i("Siu","Instance of String");
         if (availability instanceof String) {
             String availabilityString = (String) availability;
-            if ("true".equals(availabilityString)) {
+
+            //if ("true".equals(availabilityString)) {
                 TextView textView = new TextView(this);
                 textView.setLayoutParams(params);
                 textView.setText(time + "\n");
@@ -96,7 +97,7 @@ public class available_slots extends AppCompatActivity {
                 });
 
                 flag = false;
-            }
+            //}
         } else if (availability instanceof HashMap) {
             // Handle HashMap case if needed
             // You can access specific values from the HashMap as per your requirement

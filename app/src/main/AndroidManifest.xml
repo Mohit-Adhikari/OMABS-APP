@@ -35,6 +35,7 @@
         <activity android:name=".available_slots"></activity>
         <activity android:name=".final_conformation"></activity>
         <activity android:name=".patient_log"></activity>
+        <activity android:name=".thank_you"></activity>
     </application>
 
 </manifest>

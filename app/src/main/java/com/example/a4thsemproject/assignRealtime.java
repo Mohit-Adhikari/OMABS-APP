@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -31,6 +32,7 @@ public class assignRealtime extends AppCompatActivity {
         setContentView(R.layout.assign_realtime);
         Button live = findViewById(R.id.myButton);
         Button stop=findViewById(R.id.goOfflineButton);
+        TextView available=findViewById(R.id.availabilityTextView);
         uid = getIntent().getStringExtra("uid");
         namef = getIntent().getStringExtra("namef");
         agef=String.valueOf(getIntent().getStringExtra("age"));
@@ -70,6 +72,7 @@ public class assignRealtime extends AppCompatActivity {
                             @Override
                             public void onSuccess(Void aVoid) {
                                 Log.d(TAG, "Data successfully written to Realtime Database!");
+                                available.setText("You are shown available for appointment");
                             }
                         })
                         .addOnFailureListener(new OnFailureListener() {
@@ -91,6 +94,7 @@ public class assignRealtime extends AppCompatActivity {
                                 // Data has been deleted successfully
                                 // You can add your code here
                                 Log.i("Offline Sucess","sucess");
+                                available.setText("You are shown not available for appointment");
                             }
                         })
                         .addOnFailureListener(new OnFailureListener() {
