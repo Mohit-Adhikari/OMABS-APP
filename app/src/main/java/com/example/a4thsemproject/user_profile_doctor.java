@@ -45,6 +45,7 @@ public class user_profile_doctor extends AppCompatActivity {
     String hospital_name;
     String specialization;
     Button log;
+    private TextView quoteTextView;
 
 
 
@@ -61,6 +62,17 @@ public class user_profile_doctor extends AppCompatActivity {
         hospital=findViewById(R.id.hospitalTextView);
         speciality=findViewById(R.id.specializationTextView);
         log=findViewById(R.id.myButton);
+        quoteTextView = findViewById(R.id.quoteTextView);
+        String[] quotes = {
+                "Your health is an investment, not an expense.",
+                "Take care of your body; it's the only place you have to live.",
+                "A healthy outside starts from the inside.",
+                // Add more quotes as needed
+        };
+        showQuote(quotes[0]);
+
+        // Simulate scrolling through quotes after some time (you can trigger this event as needed)
+        simulateScrollingQuotes(quotes);
 
         FirebaseFirestore database = FirebaseFirestore.getInstance();
         DocumentReference userRef= database.collection("doctors").document(uid);
@@ -130,6 +142,28 @@ public class user_profile_doctor extends AppCompatActivity {
         set_live.putExtra("speciality",specialization);
         startActivity(set_live);
     }
+    private void showQuote(String quote) {
+        quoteTextView.setText(quote);
+    }
 
+    private void simulateScrollingQuotes(final String[] quotes) {
+        // Simulate scrolling through quotes after some time (you can use a Handler, Timer, etc.)
+        new android.os.Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                for (int i = 1; i < quotes.length; i++) {
+                    final int index = i;
+                    new android.os.Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            showQuote(quotes[index]);
+                        }
+                    }, 2000 * i); // Change the delay as needed (2000 milliseconds = 2 seconds)
+                }
+            }
+        }, 2000); // Initial delay before starting to scroll quotes
+    }
 }
+
+
 

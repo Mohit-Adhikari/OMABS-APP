@@ -92,6 +92,28 @@
         app:layout_constraintStart_toEndOf="@id/imageView3"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="4dp"/>
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/specializationTextView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/myButton">
+
+        <TextView
+            android:id="@+id/quoteTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:textSize="18sp"
+            android:textColor="#009688"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:text="Healthy Quote of the Day: Your health is an investment, not an expense."/>
+
+    </ScrollView>
+
+
 
     <!-- Button to See Appointment Log at the bottom -->
     <Button
