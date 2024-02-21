@@ -1,72 +1,110 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:padding="16dp">
 
-    <!-- Replace AutoCompleteTextView with TextView -->
-    <TextView
+    <!-- Search TextView at the top -->
+    <EditText
         android:id="@+id/searchTextView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Search..."
-        android:layout_marginTop="16dp"
-        android:layout_centerHorizontal="true"/>
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:background="#F2F2F2"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:hint="Search..."
+        android:drawableStart="@android:drawable/ic_search_category_default"
+        android:drawablePadding="8dp"
+        android:textColor="#333333"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <!-- Profile Image -->
+
+    <!-- User Details -->
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:src="@drawable/sudip"
+        app:layout_constraintBottom_toTopOf="@+id/myButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/searchTextView"
+        app:layout_constraintVertical_bias="0.067"
+        tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
         android:id="@+id/nameTextView"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Mohit Sir"
-        android:textSize="18sp"
-        android:layout_below="@id/searchTextView"
-        android:layout_marginTop="16dp"
-        android:layout_centerHorizontal="true"/>
-
-    <TextView
-        android:id="@+id/genderTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Gender: Male"
-        android:layout_below="@id/nameTextView"
         android:layout_marginTop="8dp"
-        android:layout_centerHorizontal="true"/>
+        android:text=""
+        android:textSize="18sp"
+        android:textColor="#333333"
+        app:layout_constraintTop_toTopOf="@id/imageView3"
+        app:layout_constraintStart_toEndOf="@id/imageView3"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <TextView
         android:id="@+id/ageTextView"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Age: 25"
-        android:layout_below="@id/genderTextView"
-        android:layout_marginTop="8dp"
-        android:layout_centerHorizontal="true"/>
+        android:textSize="16sp"
+        android:textColor="#666666"
+        app:layout_constraintTop_toBottomOf="@id/nameTextView"
+        app:layout_constraintStart_toEndOf="@id/imageView3"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="4dp"/>
 
-    <!-- New TextViews for Hospital and Specialization -->
+    <TextView
+        android:id="@+id/genderTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:textColor="#666666"
+        app:layout_constraintTop_toBottomOf="@id/ageTextView"
+        app:layout_constraintStart_toEndOf="@id/imageView3"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="4dp"/>
+
     <TextView
         android:id="@+id/hospitalTextView"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Hospital: XYZ Hospital"
-        android:layout_below="@id/ageTextView"
-        android:layout_marginTop="8dp"
-        android:layout_centerHorizontal="true"/>
+        android:textSize="16sp"
+        android:textColor="#666666"
+        app:layout_constraintTop_toBottomOf="@id/genderTextView"
+        app:layout_constraintStart_toEndOf="@id/imageView3"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp"/>
 
     <TextView
         android:id="@+id/specializationTextView"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Specialization: Cardiology"
-        android:layout_below="@id/hospitalTextView"
-        android:layout_marginTop="8dp"
-        android:layout_centerHorizontal="true"/>
+        android:textSize="16sp"
+        android:textColor="#666666"
+        app:layout_constraintTop_toBottomOf="@id/hospitalTextView"
+        app:layout_constraintStart_toEndOf="@id/imageView3"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="4dp"/>
 
-    <!-- Button at the bottom -->
+    <!-- Button to See Appointment Log at the bottom -->
     <Button
         android:id="@+id/myButton"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="See appointment log"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="16dp"/>
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="#009688"
+        android:text="See Appointment Log"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

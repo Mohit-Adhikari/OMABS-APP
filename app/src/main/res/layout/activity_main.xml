@@ -1,26 +1,121 @@
-
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
-
-    <Button
-        android:id="@+id/doctors"
+<HorizontalScrollView xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent" android:layout_height="wrap_content" >
+    <!--
+    /*
+     *	This content is generated from the API File Info.
+     *	(Alt+Shift+Ctrl+I).
+     *
+     *	@desc
+     *	@file 		frame_1
+     *	@date 		Friday 16th of February 2024 04:31:07 AM
+     *	@title 		Page 1
+     *	@author
+     *	@keywords
+     *	@generator 	Export Kit v1.3.figma
+     *
+     */
+    -->
+    <ScrollView android:id="@+id/activity_main"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Doctor"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp"
-        android:onClick="startActivity1"/>
+        android:layout_height="match_parent" >
 
-    <Button
-        android:id="@+id/patient"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Patient"
-        android:layout_below="@id/doctors"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:onClick="starPatient"/>
-</RelativeLayout>
+        <RelativeLayout android:id="@+id/content_container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <View   android:id="@+id/activity_main1"
+                android:background="@drawable/_bg__frame_1_shape"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="0dp"
+                android:layout_width="375dp"
+                android:layout_height="812dp" />
+
+
+            <RelativeLayout android:id="@+id/splash_screen"
+                android:layout_marginTop="0dp"
+                android:layout_marginStart="0dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                >
+
+                <View
+                    android:id="@+id/_bg__splash_screen_ek1"
+                    android:layout_width="375dp"
+                    android:layout_height="849dp"
+                    android:layout_marginStart="0dp"
+                    android:layout_marginTop="0dp"
+                    android:background="@drawable/_bg__splash_screen_ek1_shape" />
+
+                <ImageView android:id="@+id/clip_doctor_and_patient_1"
+                    android:src="@drawable/clip_doctor_and_patient_1"
+                    android:contentDescription="clip_doctor_and_patient_1"
+                    android:layout_marginStart="78dp"
+                    android:layout_marginTop="112dp"
+                    android:layout_width="235.61dp"
+                    android:layout_height="310.48dp" />
+
+                <Button android:id="@+id/doctors"
+                    android:background="@drawable/_rectangle_2_shape"
+                    android:color="@color/_rectangle_2_color"
+                    android:alpha="0.69999998807907"
+                    android:layout_marginStart="56dp"
+                    android:layout_marginTop="639.89dp"
+                    android:layout_width="277dp"
+                    android:layout_height="65.87dp" />
+
+                <Button  android:id="@+id/patient"
+
+                    android:background="@drawable/_rectangle_3_shape"
+                    android:alpha="0.69999998807907"
+                    android:layout_marginStart="57dp"
+                    android:layout_marginTop="526.97dp"
+                    android:layout_width="277dp"
+                    android:layout_height="65.87dp" />
+
+                <TextView android:id="@+id/ppatient1"
+                    android:textStyle="bold"
+                    android:textSize="20sp"
+                    android:textColor="@color/patient_color"
+                    android:layout_marginLeft="160dp"
+                    android:layout_marginTop="548.92dp"
+                    android:layout_width="122dp"
+                    android:layout_height="36.32dp"
+                    android:text="patient"
+                    />
+
+                <TextView android:id="@+id/physician"
+                    android:textStyle="bold"
+                    android:textSize="20sp"
+                    android:textColor="@color/physician_color"
+                    android:layout_marginLeft="145dp"
+                    android:layout_marginTop="660.8dp"
+                    android:layout_width="103dp"
+                    android:layout_height="30.05dp"
+                    android:text="physician"
+                    />
+
+                <TextView android:id="@+id/what_are_you_signing_in_as_"
+                    android:textStyle="bold"
+                    android:textSize="20sp"
+                    android:textColor="@color/what_are_you_signing_in_as__color"
+                    android:layout_marginLeft="72dp"
+                    android:layout_marginTop="464.23dp"
+                    android:layout_width="260dp"
+                    android:layout_height="30.05dp"
+                    android:text="what are you signing in as?"
+                    />
+
+                <ImageView android:id="@+id/omabs_high_resolution_logo_black_transparent_1"
+                    android:src="@drawable/omabs_high_resolution_logo_black_transparent_1"
+                    android:contentDescription="omabs_high_resolution_logo_black_transparent_1"
+                    android:layout_marginStart="93dp"
+                    android:layout_marginTop="13.59dp"
+                    android:layout_width="172dp"
+                    android:layout_height="111.88dp" />
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </ScrollView>
+</HorizontalScrollView>

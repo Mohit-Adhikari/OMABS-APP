@@ -78,11 +78,11 @@ public class user_profile_doctor extends AppCompatActivity {
                                 genderf = document.getString("gender");
                                 hospital_name=document.getString("hospital");
                                 specialization=document.getString("specialization");
-                                name.setText(namef);
-                                age.setText(String.valueOf(agef));
-                                gender.setText(genderf);
-
-
+                                name.setText("Name:"+namef);
+                                age.setText("Age:"+String.valueOf(agef));
+                                gender.setText("Gender:"+genderf);
+                                speciality.setText("Specialization:"+specialization);
+                                hospital.setText("Hospital:"+hospital_name);
                                 Log.d(TAG, "Name: " + namef);
                                 Log.d(TAG, "Age: " + agef);
                                 Log.d(TAG, "Gender: " + genderf);

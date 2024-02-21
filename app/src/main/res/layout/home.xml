@@ -1,45 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp">
+
+    <!-- Add additional UI elements as needed -->
 
     <EditText
         android:id="@+id/emailEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="456dp"
         android:hint="Email"
-        android:inputType="textEmailAddress"
-        android:layout_marginTop="16dp"/>
+        android:inputType="textEmailAddress" />
 
     <EditText
         android:id="@+id/passwordEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="371dp"
         android:hint="Password"
-        android:inputType="textPassword"
-        android:layout_below="@id/emailEditText"
-        android:layout_marginTop="8dp"/>
+        android:inputType="textPassword" />
 
     <Button
         android:id="@+id/registerButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Sign In"
-        android:layout_below="@id/passwordEditText"
-        android:layout_marginTop="16dp"/>
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="291dp"
+        android:text="Sign In" />
 
-    <!-- Add additional UI elements as needed -->
     <TextView
         android:id="@+id/registerTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="No Account? Register"
-        android:layout_below="@id/registerButton"
-        android:layout_marginTop="16dp"
-        android:textColor="#0000FF"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="130dp"
+        android:layout_marginBottom="261dp"
         android:clickable="true"
-        android:onClick="startRegisterActivity"/>
+        android:onClick="startRegisterActivity"
+        android:text="No Account? Register"
+        android:textColor="#0000FF" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="124dp"
+        app:srcCompat="@drawable/omabs_high_resolution_logo_black_transparent_1" />
 
 </RelativeLayout>
