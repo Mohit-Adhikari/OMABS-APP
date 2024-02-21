@@ -62,9 +62,10 @@ public class user_profile extends AppCompatActivity {
                                     String namef = document.getString("name");
                                     int agef = document.getLong("age").intValue(); // Assuming "age" is stored as a number
                                     String genderf = document.getString("gender");
-                                    name.setText(namef);
-                                    age.setText(String.valueOf(agef));
-                                    gender.setText(genderf);
+                                    name.setText("Name:"+namef);
+                                    Log.d("Watashiwa",namef);
+                                    age.setText(String.valueOf("Age:"+agef));
+                                    gender.setText("Gender"+genderf);
                                     DataHolder.getInstance().setData(namef, genderf, String.valueOf(agef));
 
 
