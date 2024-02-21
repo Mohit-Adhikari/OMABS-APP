@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    >
 
     <!-- Existing UI elements -->
 
@@ -9,10 +11,9 @@
         android:id="@+id/editTextSearch"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_alignParentTop="true"
         android:hint="Search..."
-        android:inputType="text"/>
+        android:inputType="text"
+        />
 
     <Button
         android:id="@+id/buttonSearch"
@@ -20,8 +21,9 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/editTextSearch"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="8dp"
-        android:text="Search"/>
+        android:layout_marginTop="16dp"
+        android:text="Search"
+        />
 
     <TextView
         android:id="@+id/textViewNotAvailable"
@@ -29,11 +31,22 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/buttonSearch"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="8dp"
-        android:text="Not Available"/>
+        android:layout_marginTop="16dp"
+        android:text="Not Available"
+        android:visibility="gone"
+        android:textColor="#FF0000"
+        android:textStyle="italic"/>
 
-    <!-- Additional UI elements -->
-
+    <!-- ImageView for displaying an image -->
+    <ImageView
+        android:id="@+id/imageViewExample"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_below="@id/textViewNotAvailable"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/omabs_high_resolution_logo_black_transparent_1"
+        android:scaleType="centerCrop"/>
 
     <!-- You can continue adding other UI elements or RecyclerView for displaying search results below this -->
 

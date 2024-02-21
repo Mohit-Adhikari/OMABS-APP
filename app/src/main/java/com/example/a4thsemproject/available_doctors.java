@@ -55,42 +55,46 @@ public class available_doctors extends AppCompatActivity {
 
 
     }
-    private void addTextView(String name,String gender,String hospital,String age)
-    {    Log.i("Sexy Baby",name+"displayed");
+    private void addTextView(String name, String gender, String hospital, String age) {
+        Log.i("Sexy Baby", name + " displayed");
+
         RelativeLayout layout = findViewById(R.id.layout);
 
-        // Create a new RelativeLayout for each TextView
+        // Create LayoutParams with appropriate margins
         RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(
-                ViewGroup.LayoutParams.WRAP_CONTENT,
+                ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT
         );
-
-        // Set below the previously created TextView
+        params.setMargins(16, 16, 16, 16);
         if (layout.getChildCount() > 0) {
             params.addRule(RelativeLayout.BELOW, layout.getChildAt(layout.getChildCount() - 1).getId());
         }
 
+        // Create a new TextView
         TextView textView = new TextView(this);
         textView.setLayoutParams(params);
-        textView.setText(name + "\n" + gender + "\n" + hospital + "\n" + age);
-        textView.setBackgroundResource(R.drawable.text_view_background);
-        textView.setPadding(16, 16, 16, 16);
+        textView.setText("Name: " + name + "\nGender: " + gender + "\nHospital: " + hospital + "\nAge: " + age);
+        textView.setBackgroundResource(R.drawable.professional_text_view_background);
+        textView.setPadding(20, 20, 20, 20);
+        textView.setTextSize(16); // Set a readable font size
+        //textView.setTextColor(getResources().getColor(R.color.r)); // Customize text color
 
         // Generate a unique ID for each TextView
         int id = View.generateViewId();
         textView.setId(id);
+
+        // Set onClick functionality
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(available_doctors.this,available_slots.class);
-                intent.putExtra("name",name);
-                intent.putExtra("specialization",specialization);
+                Intent intent = new Intent(available_doctors.this, available_slots.class);
+                intent.putExtra("name", name);
+                intent.putExtra("specialization", specialization);
                 startActivity(intent);
-
             }
         });
 
         layout.addView(textView);
-
     }
+
 }

@@ -1,0 +1,16 @@
+<!-- res/drawable/professional_text_view_background.xml -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+
+    <!-- Border Color -->
+    <stroke
+        android:width="2dp"
+        android:color="#000000" /> <!-- You can customize the color and width -->
+
+    <!-- Background Color -->
+    <solid android:color="#FFFFFF" /> <!-- You can customize the background color -->
+
+    <!-- Corners Radius -->
+    <corners android:radius="8dp" /> <!-- You can customize the corner radius -->
+
+</shape>
