@@ -34,7 +34,7 @@ public class available_slots extends AppCompatActivity {
         specialization = getIntent().getStringExtra("specialization");
         databaseReference = FirebaseDatabase.getInstance().getReference("doctors").child(specialization).child(name).child("appointment_slots");
         //String slot[] = {"10", "10.30", "11", "11.30", "12", "12.30", "1", "1.30", "2", "2.30"};
-       
+
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -88,7 +88,7 @@ public class available_slots extends AppCompatActivity {
             textView.setPadding(16, 16, 16, 16);
             textView.setTextColor(Color.BLACK); // Set text color
             textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
-            //textView.setBackgroundResource(R.drawable.text_view_background);// Set text size
+            textView.setBackgroundResource(R.drawable.text_view_background);// Set text size
 
             // Customize other TextView properties as needed
 

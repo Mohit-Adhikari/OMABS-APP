@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/layout1"
+    android:id="@+id/layout2"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -9,7 +9,7 @@
         android:id="@+id/confirmationMessage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Available Slots"
+        android:text="Patient Log"
         android:textSize="24sp"
         android:textStyle="bold"
         android:layout_centerHorizontal="true"

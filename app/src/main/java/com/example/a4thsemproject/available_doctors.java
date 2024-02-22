@@ -1,8 +1,10 @@
 package com.example.a4thsemproject;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
@@ -75,8 +77,10 @@ public class available_doctors extends AppCompatActivity {
         textView.setLayoutParams(params);
         textView.setText("Name: " + name + "\nGender: " + gender + "\nHospital: " + hospital + "\nAge: " + age);
         textView.setBackgroundResource(R.drawable.professional_text_view_background);
-        textView.setPadding(20, 20, 20, 20);
-        textView.setTextSize(16); // Set a readable font size
+        textView.setPadding(16, 16, 16, 16);
+        textView.setTextColor(Color.BLACK); // Set text color
+        textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
+        textView.setBackgroundResource(R.drawable.text_view_background);
         //textView.setTextColor(getResources().getColor(R.color.r)); // Customize text color
 
         // Generate a unique ID for each TextView
