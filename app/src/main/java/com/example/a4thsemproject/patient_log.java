@@ -62,6 +62,7 @@ public class patient_log extends AppCompatActivity {
                 ViewGroup.LayoutParams.WRAP_CONTENT
         );
 
+
         // Set below the previously created TextView
         if (layout.getChildCount() > 0) {
             params.addRule(RelativeLayout.BELOW, layout.getChildAt(layout.getChildCount() - 1).getId());

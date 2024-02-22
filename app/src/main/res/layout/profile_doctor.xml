@@ -5,14 +5,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp">
+    android:padding="16dp"
+    >
 
     <!-- Search TextView at the top -->
     <EditText
         android:id="@+id/searchTextView"
         android:layout_width="0dp"
         android:layout_height="40dp"
-        android:background="#F2F2F2"
+        android:background="#E6E6FA"
         android:paddingStart="16dp"
         android:paddingEnd="16dp"
         android:hint="Search..."
@@ -26,31 +27,37 @@
     <!-- Profile Image -->
 
     <!-- User Details -->
+
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
+        android:layout_width="137dp"
+        android:layout_height="128dp"
         android:src="@drawable/sudip"
         app:layout_constraintBottom_toTopOf="@+id/myButton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/searchTextView"
-        app:layout_constraintVertical_bias="0.067"
+        app:layout_constraintVertical_bias="0.06"
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
         android:id="@+id/nameTextView"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:background="#E6E6FA"
+
+        android:layout_width="239dp"
+        android:layout_height="26dp"
+        android:layout_marginTop="12dp"
         android:text=""
-        android:textSize="18sp"
         android:textColor="#333333"
-        app:layout_constraintTop_toTopOf="@id/imageView3"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@id/imageView3"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintTop_toTopOf="@id/imageView3" />
 
     <TextView
         android:id="@+id/ageTextView"
+        android:background="#E6E6FA"
+
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:textSize="16sp"
@@ -62,6 +69,8 @@
 
     <TextView
         android:id="@+id/genderTextView"
+        android:background="#E6E6FA"
+
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:textSize="16sp"
@@ -73,6 +82,8 @@
 
     <TextView
         android:id="@+id/hospitalTextView"
+        android:background="#E6E6FA"
+
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:textSize="16sp"
@@ -84,6 +95,8 @@
 
     <TextView
         android:id="@+id/specializationTextView"
+        android:background="#E6E6FA"
+
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:textSize="16sp"
@@ -103,6 +116,8 @@
         <TextView
             android:id="@+id/quoteTextView"
             android:layout_width="match_parent"
+            android:background="#E6E6FA"
+
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:textSize="18sp"
@@ -112,6 +127,7 @@
             android:text="Healthy Quote of the Day: Your health is an investment, not an expense."/>
 
     </ScrollView>
+
 
 
 
