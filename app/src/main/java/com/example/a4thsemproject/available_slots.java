@@ -88,7 +88,7 @@ public class available_slots extends AppCompatActivity {
             textView.setPadding(16, 16, 16, 16);
             textView.setTextColor(Color.BLACK); // Set text color
             textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
-            textView.setBackgroundResource(R.drawable.text_view_background);// Set text size
+            //textView.setBackgroundResource(R.drawable.text_view_background);// Set text size
 
             // Customize other TextView properties as needed
 

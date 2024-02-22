@@ -80,7 +80,7 @@ public class available_doctors extends AppCompatActivity {
         textView.setPadding(16, 16, 16, 16);
         textView.setTextColor(Color.BLACK); // Set text color
         textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
-        textView.setBackgroundResource(R.drawable.text_view_background);
+        //textView.setBackgroundResource(R.drawable.text_view_background);
         //textView.setTextColor(getResources().getColor(R.color.r)); // Customize text color
 
         // Generate a unique ID for each TextView
